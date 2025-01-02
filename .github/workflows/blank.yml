@@ -31,6 +31,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: grouping debug logs
+        run: |
+          set -x
+          echo ::group::Hello
+          echo grouped Hello, world!
+          echo ::endgroup::
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
