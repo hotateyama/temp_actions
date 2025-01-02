@@ -1,0 +1,22 @@
+name: test
+
+on: 
+    push
+
+jobs:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+            uses: actions/checkout@v2
+        - name: Build
+            run: |
+                echo "Building project"
+                # Add your build commands here
+        - name: Run tests
+            run: |
+                echo "Running tests"
+                exit 1
+        - name: Deploy
+            run: |
+                echo "Deploying project"
+                # Add your deployment commands here
