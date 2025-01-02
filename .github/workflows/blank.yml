@@ -36,6 +36,8 @@ jobs:
       - name: print masked env
         run: |
           # set -x
+          echo "started"
+          echo "var is ::add-mask::${VAR}"
           echo "::add-mask::${VAR}"
           echo "${VAR}"
           echo "finished"
