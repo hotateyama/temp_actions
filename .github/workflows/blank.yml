@@ -37,9 +37,13 @@ jobs:
         run: |
           # set -x
           echo "started"
-          echo "var is ::add-mask::${VAR}"
           echo "::add-mask::${VAR}"
           echo "${VAR}"
+          echo "::endmask::"
+
+          echo "::error::This is an error"
+          echo "::warning::This is a warning"
+          echo "::notice::This is a notice"
           echo "finished"
 
       - name: grouping debug logs
