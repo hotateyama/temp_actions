@@ -36,7 +36,8 @@ jobs:
       - name: print masked env
         run: |
           set -x
-          echo ::add-mask::${VAR}
+          echo "::add-mask::${VAR}"
+          echo "${VAR}"
 
       - name: grouping debug logs
         run: |
