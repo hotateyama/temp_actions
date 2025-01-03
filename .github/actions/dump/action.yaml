@@ -15,15 +15,15 @@ outputs:
 runs:
   using: composite
   steps:
-    - run: printenv | sort
-      shell: bash
-    - run: echo "${CONTEXT}"
-      if: ${{inputs.enable-context == 'true'}}
-      env:
-        CONTEXT: ${{ toJson(github) }}
-      shell: bash
+    # - run: printenv | sort
+    #   shell: bash
+    # - run: echo "${CONTEXT}"
+    #   if: ${{inputs.enable-context == 'true'}}
+    #   env:
+    #     CONTEXT: ${{ toJson(github) }}
+    #   shell: bash
     - id: current
-      run: echo "date=$(date)" >> "{{GITHUB_OUTPUT}}"
+      run: echo date=$(date) >> ${GITHUB_OUTPUT}
       shell: bash
     - run: echo $(date)
       shell: bash
