@@ -28,8 +28,8 @@ runs:
       env:
         CONTEXT: ${{ toJson(github) }}
       shell: bash
-      
-    - run: echo "{CONTEXT}"
+
+    - run: echo "${CONTEXT}"
       shell: bash
 
     - id: current
