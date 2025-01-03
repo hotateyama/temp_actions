@@ -22,16 +22,16 @@ runs:
     - run: printenv | sort
       shell: bash
       if: ${{inputs.print-env == 'true'}}
+
     - run: echo "${CONTEXT}"
       if: ${{inputs.enable-context == 'true'}}
       env:
         CONTEXT: ${{ toJson(github) }}
       shell: bash
+      
     - run: echo "{CONTEXT}"
+      shell: bash
+
     - id: current
       run: echo date=$(date) >> ${GITHUB_OUTPUT}
-      shell: bash
-    - run: echo $(date)
-      shell: bash
-    - run: echo ${date}
       shell: bash
