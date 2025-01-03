@@ -7,7 +7,11 @@ inputs:
     default: "true"
     required: false
     description: "enable context dump"
-
+  print-env:
+    default: "true"
+    required: false
+    description: "print env variables"
+    
 outputs:
   dumped-date:
     value: ${{steps.current.outputs.date}}
@@ -15,13 +19,14 @@ outputs:
 runs:
   using: composite
   steps:
-    # - run: printenv | sort
-    #   shell: bash
-    # - run: echo "${CONTEXT}"
-    #   if: ${{inputs.enable-context == 'true'}}
-    #   env:
-    #     CONTEXT: ${{ toJson(github) }}
-    #   shell: bash
+    - run: printenv | sort
+      shell: bash
+      if: ${{inputs.print-env == 'true'}}
+    - run: echo "${CONTEXT}"
+      if: ${{inputs.enable-context == 'true'}}
+      env:
+        CONTEXT: ${{ toJson(github) }}
+      shell: bash
     - id: current
       run: echo date=$(date) >> ${GITHUB_OUTPUT}
       shell: bash
