@@ -24,6 +24,8 @@ runs:
       shell: bash
     - id: current
       run: echo "date=$(date)" >> "{{GITHUB_OUTPUT}}"
-      run: echo $(date)
-      run: echo ${date}
+      shell: bash
+    - run: echo $(date)
+      shell: bash
+    - run: echo ${date}
       shell: bash
