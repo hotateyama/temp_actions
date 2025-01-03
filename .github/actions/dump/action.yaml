@@ -16,11 +16,12 @@ runs:
   using: composite
   steps:
     - run: printenv | sort
-      # shell: bash
+      shell: bash
     - run: echo "${CONTEXT}"
       if: ${{inputs.enable-context == 'true'}}
       env:
         CONTEXT: ${{ toJson(github) }}
+      shell: bash
     - id: current
       run: echo "data=$(date)" >> "{{GITHUB_OUTPUT}}"
-      # shell: bash
+      shell: bash
