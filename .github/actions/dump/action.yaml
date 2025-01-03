@@ -10,7 +10,7 @@ inputs:
 
 outputs:
   dumped-date:
-    value: ${{steps.current.outputs.data}}
+    value: ${{steps.current.outputs.date}}
 
 runs:
   using: composite
@@ -23,5 +23,7 @@ runs:
         CONTEXT: ${{ toJson(github) }}
       shell: bash
     - id: current
-      run: echo "data=$(date)" >> "{{GITHUB_OUTPUT}}"
+      run: echo "date=$(date)" >> "{{GITHUB_OUTPUT}}"
+      run: echo $(date)
+      run: echo ${date}
       shell: bash
