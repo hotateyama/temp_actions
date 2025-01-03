@@ -36,7 +36,7 @@ jobs:
       - uses: ./.github/actions/dump/
         id: dump
         with:
-          enable-context: "true"
+          enable-context: "false"
           print-env: "false"
       - run: echo "${DATE}"
         env:
